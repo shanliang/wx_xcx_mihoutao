@@ -1,0 +1,25 @@
+<!--order.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view>
+    <view>订单信息：¥{{weight}}元装 {{num}}箱</view>
+  </view>
+  <view>
+    <button bindtap='bindChooseAddress'>收货地址</button>
+  </view>
+  <view class="section">
+    <view class="section__title">收件人：</view>
+    <text class="userinfo-nickname">{{address.userName}}</text>
+  </view>
+  <view class="section">
+    <view class="section__title">地址：</view>
+    <text class="userinfo-address">{{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}}{{address.nationalCode}}</text>
+  </view> 
+   <view class="section">
+    <view class="section__title">手机：</view>
+    <text class="userinfo-phone">{{address.telNumber}}</text>
+  </view>
+  <view class="btn-area">
+    <button formType="submit">提交</button>
+    <button formType="reset">重置</button>
+  </view>
+</form>

@@ -1,0 +1,30 @@
+.section{
+  margin-bottom: 10px;
+}
+.product-pic{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-pic image{
+  width: 750rpx;
+  height: 750rpx;
+}
+button{
+  background: red;
+  color: #fff;
+}
+.title{
+  display: flex;
+  flex-direction: column;
+}
+.price{
+  display: flex;
+  flex-direction: column;
+  color: #ff0000
+}
+.number{
+  border: 1px solid #eee;
+  height: 40px;
+  width: 200px;
+}
