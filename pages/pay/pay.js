@@ -34,14 +34,20 @@ Page({
   },
   ajax: function () {
     wx.request({
-      url: 'https://iduoguo.com', //仅为示例，并非真实的接口地址
+      url: 'https://iduoguo.com/Mall/index/test', //仅为示例，并非真实的接口地址
       header: {
-        'content-type': 'application/xml' // 默认值
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'POST',
+      data: {
+        name: 'test',
+        age: '猕猴桃',
+        id: '777666'
       },
       success: function (res) {
         console.log(res.data)
-        wx.showToast({
-          title: '成功',
+        wx.showModal({
+          content: JSON.stringify(res.data),
           icon: 'success',
           duration: 2000
         })
