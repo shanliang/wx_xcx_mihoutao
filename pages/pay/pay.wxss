@@ -1,7 +1,28 @@
-.section{
-  margin-bottom: 10px;
+.product{
+  display: flex;
+  justify-content: space-between;
 }
 image{
-  width: 621rpx;
-  height: 852rpx;
+  height: 55px;
+  width: 35%;
+  margin-right: 10px;
+}
+.section{
+  margin: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+  color: #353535;
+}
+.amount{
+  border-bottom: 0 none;
+}
+button{
+  background: #09bb07;
+  color: #ffffff;
+}
+.section__title{
+  width: 30%;
 }

@@ -1,38 +1,47 @@
 //order.js
-
+//获取应用实例
+const app = getApp()
 Page({
   data: {
     address: null,
     weight: '',
-    num:''
+    num: '',
+    amount: ''
   },
-  onLoad: function(option){
+  onLoad: function (option) {
     console.log(option)
+    var map = {
+      '60': '5',
+      '110': '10'
+    }
+    var num = option.num
+    var price = option.weight
+    if ((num > 1) && (price === '60')) {
+      price = 55;
+    }
+    var amount = num * price;
     this.setData({
-      weight: option.weight,
-      num: option.num
+      weight: map[option.weight],
+      num: option.num,
+      amount: amount
     })
   },
   bindChooseAddress: function () {
-    var self = this
+    this.getAddress()
+  },
+  getAddress: function () {
+    var self = this;
     wx.chooseAddress({
       success: function (res) {
         self.setData({
           address: res,
         })
-
-        console.log(res.userName)
-        console.log(res.postalCode)
-        console.log(res.provinceName)
-        console.log(res.cityName)
-        console.log(res.countyName)
-        console.log(res.detailInfo)
-        console.log(res.nationalCode)
-        console.log(res.telNumber)
       }
     })
   },
   ajax: function () {
+    var orderData = this.data
+    var userInfo = getApp().globalData.userInfo
     wx.request({
       url: 'https://iduoguo.com/Mall/index/test', //仅为示例，并非真实的接口地址
       header: {
@@ -40,31 +49,34 @@ Page({
       },
       method: 'POST',
       data: {
-        name: 'test',
-        age: '猕猴桃',
-        id: '777666'
+        userInfo: userInfo,
+        orderData: orderData
       },
       success: function (res) {
-        console.log(res.data)
-        wx.showModal({
-          content: JSON.stringify(res.data),
+        wx.showToast({
+          title: '提交成功',
           icon: 'success',
-          duration: 2000
+          duration: 1000
         })
+        setTimeout(function(){
+          wx.navigateTo({
+            url: '../success/success'
+          })
+        }, 1010)
       }
     })
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    this.ajax();
-  },
-  formReset: function () {
-    console.log('form发生了reset事件')
-  },
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      region: e.detail.value
-    })
+    if (this.data.address) {
+      this.ajax();
+    } else {
+      wx.showModal({
+        title:'提示',
+        content: '请选择收货地址',
+        showCancel: false
+      })
+    }
+
   }
 })

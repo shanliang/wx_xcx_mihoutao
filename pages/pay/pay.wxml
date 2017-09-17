@@ -1,25 +1,31 @@
 <!--order.wxml-->
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <view>
-    <view>订单信息：¥{{weight}}元装 {{num}}箱</view>
+  <view class='section product'>
+    <image src='../order/image/tao.jpg' mode="aspectFill"></image>
+    <text class='product-title'>陕西眉县正宗徐香猕猴桃 绿心 奇异果 新鲜 当季水果 包邮 {{weight}}斤装</text>
   </view>
-  <view>
-    <button bindtap='bindChooseAddress'>收货地址</button>
+  <view class='section'>
+    <text>数量：</text>
+    <text>{{num}}箱</text>
   </view>
-  <view class="section">
+   <view class='section'>
+    <text>配送方式：</text>
+    <text>快递免邮</text>
+  </view>
+  <view class='section'  bindtap='bindChooseAddress'>
     <view class="section__title">收件人：</view>
     <text class="userinfo-nickname">{{address.userName}}</text>
+    <text class='phone'>{{address.telNumber}}</text> 
   </view>
-  <view class="section">
+  <view class='section address'>
     <view class="section__title">地址：</view>
     <text class="userinfo-address">{{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}}{{address.nationalCode}}</text>
-  </view> 
-   <view class="section">
-    <view class="section__title">手机：</view>
-    <text class="userinfo-phone">{{address.telNumber}}</text>
+  </view>
+  <view class='section amount'>
+    <text class='section__title'>总价:</text>
+    <text>{{amount}}元</text>
   </view>
   <view class="btn-area">
     <button formType="submit">提交</button>
-    <button formType="reset">重置</button>
   </view>
 </form>

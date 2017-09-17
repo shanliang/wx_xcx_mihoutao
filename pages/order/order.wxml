@@ -1,20 +1,22 @@
 <!--order.wxml-->
 <view class='product-pic'>
-  <image src='./image/tao.jpg'></image>
+  <image src='./image/tao.jpg'  mode="aspectFill"></image>
 </view>
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view>
-    <view class='title'>陕西眉县正宗徐香猕猴桃 绿心 奇异果 新鲜 当季水果 包邮        </view>
-    <view class='price'>¥{{price}}</view>
+    <view class='section title'>陕西眉县正宗徐香猕猴桃 绿心 奇异果 新鲜 当季水果 包邮 </view>
+    <view class='section price'>¥{{price}}<text class='price-tip'>{{priceTip}}</text></view>
   </view>
   <view class="section section_gap">
     <view class="section__title">份量:</view>
     <radio-group name="weight" bindchange="checkweight">
-      <label><radio value="60" checked />5斤装</label>
-      <label><radio value="110"/>10斤装</label>
+      <label>
+        <radio value="60" checked />5斤装</label>
+      <label>
+        <radio value="110" />10斤装</label>
     </radio-group>
   </view>
-   <view class="section section_gap">
+  <view class="section section_gap">
     <view class="section__title">数量:</view>
     <input name='num' class='number' type='number' value='1' />
   </view>

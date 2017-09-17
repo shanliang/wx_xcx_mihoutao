@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <text class='title'>声明</text>
+  <text>本小程序为个人性质，只供提交订单信息功能，而无法在本小程序进行支付！</text>
+  <text>所以需要亲转账或红包 珊珊sandy完成购买~o(*￣︶￣*)o为给您带来的不便深表歉意！</text>
+</view>
